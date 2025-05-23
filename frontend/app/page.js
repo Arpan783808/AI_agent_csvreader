@@ -10,6 +10,9 @@ import axios from "axios";
 import CsvViewer from "../components/csvviewer.js";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../components/loader.js";
+import dotenv from "dotenv";
+dotenv.config();
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 const Page = () => {
   const [file, setFile] = useState(null);
   const [query, setQuery] = useState("");
@@ -38,7 +41,7 @@ const Page = () => {
       }); // Using toast.error
       return;
     }
-    if (!query.trim()) {
+    if (query==="") {
       toast.warn(
         "Please enter a query. It helps the backend process your data better!"
       );
@@ -60,7 +63,7 @@ const Page = () => {
     setIsfile(true);
     try {
       const response = await axios.post(
-        "http://localhost:8000/uploadcsv",
+          `${backendUrl}/uploadcsv`,
         formData,
         {
           headers: {
@@ -117,6 +120,7 @@ const Page = () => {
     setDisplayedCsvData(null);
     setIsfile(false);
     setOutput("Output will be shown here");
+    setIsLoading(false);
   };
   return (
     <div
