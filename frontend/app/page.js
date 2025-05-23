@@ -197,7 +197,7 @@ const Page = () => {
                   onChange={(e) => {
                     setQuery(e.target.value);
                   }}
-                  className={`p-[12px] z-10 w-full h-full ${innerBgColor} rounded-[10px] flex items-center justify-center`}
+                  className={`p-[12px] w-full h-full ${innerBgColor} rounded-[10px] flex items-center justify-center resize-none`}
                 ></textarea>
                 <button
                   className="absolute right-[10px] top-[10px] z-100 w-20 h-10 cursor-pointer rounded-[3px] bg-[#833AB4] bg-[linear-gradient(96deg,_rgba(131,_58,_180,_1)_0%,_rgba(253,_29,_29,_1)_50%,_rgba(252,_176,_69,_1)_100%)]"
@@ -227,7 +227,7 @@ const Page = () => {
                   <textarea
                     value={output}
                     disabled={true}
-                    className="p-[20px] z-10 w-[98%] h-[96%] ${innerBgColor}  text-[#EAEFEF] rounded-[6px] flex items-center justify-center "
+                    className="p-[20px] z-10 w-[98%] h-[96%] ${innerBgColor}  text-[#EAEFEF] rounded-[6px] flex items-center justify-center resize-none"
                   ></textarea>
                 </div>
               </div>
